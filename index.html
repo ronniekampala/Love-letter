@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Letter to Rihanna 💗</title>
+<style>
+:root{--pink:#ff4f9a;--deep:#9d174d;--soft:#fff0f6;--text:#40152a}
+*{box-sizing:border-box}
+body{margin:0;font-family:Georgia,serif;color:var(--text);background:linear-gradient(135deg,#ffd6e8,#fff5f9,#ffc1dc);min-height:100vh}
+nav{position:sticky;top:0;background:#ffffffd9;backdrop-filter:blur(10px);display:flex;justify-content:space-between;align-items:center;padding:15px 7%;z-index:5;font-family:Arial,sans-serif}
+.logo{font-weight:800;color:var(--deep);font-size:1.2rem}
+nav button,.btn{border:0;border-radius:999px;padding:10px 16px;background:var(--pink);color:white;cursor:pointer;font-weight:700}
+.hero{min-height:72vh;display:grid;place-items:center;text-align:center;padding:70px 20px}
+.hero-card{max-width:760px;background:#ffffffc9;padding:45px 28px;border-radius:30px;box-shadow:0 20px 60px #9d174d22}
+.heart{font-size:4rem;animation:pulse 1.4s infinite}
+h1{font-size:clamp(2.5rem,8vw,5rem);margin:10px 0;color:var(--deep)}
+.subtitle{font-family:Arial,sans-serif;font-size:1.05rem}
+section{max-width:850px;margin:0 auto;padding:45px 22px}
+.letter{background:#fffafa;padding:35px;line-height:1.9;border-radius:24px;box-shadow:0 15px 40px #9d174d18}
+.letter p{margin:0 0 18px}
+.signature{font-style:italic;font-size:1.2rem;color:var(--deep)}
+.tools{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:25px}
+.counter{font-family:Arial,sans-serif;text-align:center;margin:30px auto;padding:20px;border-radius:20px;background:#ffffffaa}
+#message{min-height:25px;font-family:Arial,sans-serif;font-weight:700}
+footer{text-align:center;padding:35px;font-family:Arial,sans-serif;font-size:.9rem}
+@keyframes pulse{50%{transform:scale(1.15)}}
+.floating{position:fixed;pointer-events:none;animation:float 4s linear forwards;font-size:24px;z-index:10}
+@keyframes float{from{transform:translateY(0);opacity:1}to{transform:translateY(-100vh) rotate(30deg);opacity:0}}
+.dark{background:linear-gradient(135deg,#260814,#4b102b,#17050c);color:#ffe7f0}
+.dark nav,.dark .hero-card,.dark .letter,.dark .counter{background:#2a0d1bcc;color:#ffe7f0}
+.dark h1{color:#ff8fba}
+</style>
+</head>
+<body>
+<nav>
+<div class="logo">💗 For Rihanna</div>
+<button onclick="toggleTheme()">🌙 Theme</button>
+</nav>
+
+<main>
+<section class="hero">
+<div class="hero-card">
+<div class="heart">💗</div>
+<h1>Dear Rihanna</h1>
+<p class="subtitle">A little corner of the internet for a big feeling: missing the music, energy, and memories your art has created.</p>
+<div class="tools">
+<button class="btn" onclick="showLove()">Open a little surprise</button>
+<button class="btn" onclick="makeHearts()">💞 Send hearts</button>
+</div>
+<p id="message"></p>
+</div>
+</section>
+
+<section>
+<div class="letter">
+<h2>💌 My Letter</h2>
+<p>Dear Rihanna,</p>
+<p>
+I just wanted to leave a few words here because sometimes you can really miss the feeling that someone's music brings into your life. I miss those moments when your songs made ordinary days feel special, when a familiar voice could change the whole mood, and when the memories connected to your music came rushing back.
+</p>
+<p>
+Your music has been part of so many moments, and that's something I don't take for granted. Even when time passes, those songs can still bring back the same feelings and memories.
+</p>
+<p>
+So this little website is simply a thank-you and a reminder: your art has meant a lot to me, and I hope you keep creating things that make people smile, feel, remember, and dream.
+</p>
+<p>
+Until the next song, the next memory, and the next moment that makes me press play again — you'll always have a special place in my playlist. 💗
+</p>
+<p class="signature">With admiration,<br>Someone who misses the music 💕</p>
+</div>
+
+<div class="counter">
+<h3>💖 A tiny memory counter</h3>
+<p>Every click adds another heart to the page.</p>
+<strong id="count">0</strong> hearts
+</div>
+</section>
+</main>
+
+<footer>
+Made with 💗 • Fan-made page • Not affiliated with Rihanna or her official site.
+</footer>
+
+<script>
+let count=0;
+function makeHearts(){
+  count++;
+  document.getElementById("count").textContent=count;
+  for(let i=0;i<7;i++){
+    const h=document.createElement("div");
+    h.className="floating";
+    h.textContent=["💗","💕","💖","💞"][Math.floor(Math.random()*4)];
+    h.style.left=Math.random()*95+"vw";
+    h.style.bottom="10px";
+    h.style.animationDuration=(2.5+Math.random()*2)+"s";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),4500);
+  }
+}
+function showLove(){
+  document.getElementById("message").textContent="Some songs become memories. Some memories never really leave. 💗";
+  makeHearts();
+}
+function toggleTheme(){document.body.classList.toggle("dark")}
+</script>
+</body>
+</html>
