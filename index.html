@@ -3,107 +3,68 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A Letter to Rihanna 💗</title>
+<title>For Khloe ❤️</title>
 <style>
-:root{--pink:#ff4f9a;--deep:#9d174d;--soft:#fff0f6;--text:#40152a}
-*{box-sizing:border-box}
-body{margin:0;font-family:Georgia,serif;color:var(--text);background:linear-gradient(135deg,#ffd6e8,#fff5f9,#ffc1dc);min-height:100vh}
-nav{position:sticky;top:0;background:#ffffffd9;backdrop-filter:blur(10px);display:flex;justify-content:space-between;align-items:center;padding:15px 7%;z-index:5;font-family:Arial,sans-serif}
-.logo{font-weight:800;color:var(--deep);font-size:1.2rem}
-nav button,.btn{border:0;border-radius:999px;padding:10px 16px;background:var(--pink);color:white;cursor:pointer;font-weight:700}
-.hero{min-height:72vh;display:grid;place-items:center;text-align:center;padding:70px 20px}
-.hero-card{max-width:760px;background:#ffffffc9;padding:45px 28px;border-radius:30px;box-shadow:0 20px 60px #9d174d22}
-.heart{font-size:4rem;animation:pulse 1.4s infinite}
-h1{font-size:clamp(2.5rem,8vw,5rem);margin:10px 0;color:var(--deep)}
-.subtitle{font-family:Arial,sans-serif;font-size:1.05rem}
-section{max-width:850px;margin:0 auto;padding:45px 22px}
-.letter{background:#fffafa;padding:35px;line-height:1.9;border-radius:24px;box-shadow:0 15px 40px #9d174d18}
-.letter p{margin:0 0 18px}
-.signature{font-style:italic;font-size:1.2rem;color:var(--deep)}
-.tools{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:25px}
-.counter{font-family:Arial,sans-serif;text-align:center;margin:30px auto;padding:20px;border-radius:20px;background:#ffffffaa}
-#message{min-height:25px;font-family:Arial,sans-serif;font-weight:700}
-footer{text-align:center;padding:35px;font-family:Arial,sans-serif;font-size:.9rem}
-@keyframes pulse{50%{transform:scale(1.15)}}
-.floating{position:fixed;pointer-events:none;animation:float 4s linear forwards;font-size:24px;z-index:10}
-@keyframes float{from{transform:translateY(0);opacity:1}to{transform:translateY(-100vh) rotate(30deg);opacity:0}}
-.dark{background:linear-gradient(135deg,#260814,#4b102b,#17050c);color:#ffe7f0}
-.dark nav,.dark .hero-card,.dark .letter,.dark .counter{background:#2a0d1bcc;color:#ffe7f0}
-.dark h1{color:#ff8fba}
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{min-height:100vh;background:linear-gradient(135deg,#ff9a9e,#fecfef,#fad0c4,#ffecd2);font-family:'Poppins',sans-serif;display:flex;align-items:center;justify-content:center;padding:20px}
+.hearts{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:1}
+.heart-float{position:absolute;animation:fall linear infinite;color:#e84393;opacity:0.7}
+@keyframes fall{0%{transform:translateY(-10vh) rotate(0deg)}100%{transform:translateY(110vh) rotate(360deg);opacity:0}}
+.container{position:relative;z-index:2;max-width:580px;width:100%}
+.envelope-wrap{text-align:center;transition:0.8s}
+.envelope{width:200px;height:140px;background:#e84393;margin:0 auto;border-radius:0 0 12px 12px;position:relative;cursor:pointer;box-shadow:0 20px 40px rgba(0,0,0,0.2)}
+.envelope:before{content:'';position:absolute;top:-70px;left:0;border-left:100px solid transparent;border-right:100px solid transparent;border-bottom:70px solid #ff6b9d}
+.tap{margin-top:15px;color:#e84393;font-size:13px;animation:blink 1.5s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.card{display:none;background:white;border-radius:28px;overflow:hidden;box-shadow:0 30px 90px rgba(0,0,0,0.25);animation:pop .8s ease}
+@keyframes pop{0%{transform:scale(.8) translateY(30px);opacity:0}100%{transform:scale(1) translateY(0);opacity:1}}
+.photo-wrap{position:relative;height:400px;overflow:hidden;background:#000}
+.photo-wrap img{width:100%;height:100%;object-fit:contain}
+.photo-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.7));height:120px}
+.photo-name{position:absolute;bottom:18px;left:22px;color:white;font-family:'Dancing Script',cursive;font-size:34px;text-shadow:0 2px 10px rgba(0,0,0,0.5)}
+.content{padding:28px 26px 24px}
+h1{font-family:'Dancing Script',cursive;font-size:38px;color:#e84393}
+.sub{font-size:11px;color:#ff8a9b;letter-spacing:3px;text-transform:uppercase;margin-bottom:14px}
+.letter{color:#555;line-height:1.9;font-size:14.8px;min-height:220px}
+.signature{text-align:right;font-family:'Dancing Script',cursive;font-size:26px;color:#e84393;margin-top:20px}
+.btns{display:flex;gap:10px;margin-top:22px}
+.btn{flex:1;padding:13px;border-radius:30px;text-align:center;text-decoration:none;font-weight:600;font-size:14px;cursor:pointer;border:none}
+.btn-primary{background:#e84393;color:white}
+.btn-secondary{background:#fff0f3;color:#e84393}
 </style>
 </head>
 <body>
-<nav>
-<div class="logo">💗 For Rihanna</div>
-<button onclick="toggleTheme()">🌙 Theme</button>
-</nav>
-
-<main>
-<section class="hero">
-<div class="hero-card">
-<div class="heart">💗</div>
-<h1>Dear Rihanna</h1>
-<p class="subtitle">A little corner of the internet for a big feeling: missing the music, energy, and memories your art has created.</p>
-<div class="tools">
-<button class="btn" onclick="showLove()">Open a little surprise</button>
-<button class="btn" onclick="makeHearts()">💞 Send hearts</button>
+<div class="hearts" id="hearts"></div>
+<div class="container">
+  <div class="envelope-wrap" id="envelopeWrap">
+    <div class="envelope" onclick="openLetter()"><div style="color:white;padding-top:50px;font-weight:600">FOR KHLOE 💌</div></div>
+    <div class="tap">Tap to open your letter 👆</div>
+  </div>
+  <div class="card" id="card">
+    <div class="photo-wrap">
+      <img src="Screenshot_20260822-231216_Photos.jpg" alt="Khloe">
+      <div class="photo-overlay"></div>
+      <div class="photo-name">Khloe ✨ My Neighbour</div>
+    </div>
+    <div class="content">
+      <h1>Dear Khloe,</h1>
+      <div class="sub">My Beautiful Neighbour</div>
+      <div class="letter" id="letter"></div>
+      <div class="signature" id="signature" style="display:none">Yours truly,<br>Ronnie — your neighbour ❤️</div>
+      <div class="btns" id="btns" style="display:none">
+        <a class="btn btn-primary" href="#" onclick="alert('Screenshot this and send to Ronnie: Hi neighbour, I saw your letter ❤️');return false;">Say Hi Back? 💬</a>
+        <a class="btn btn-secondary" href="#" onclick="heartsExplosion();return false;">I Love It! ❤️</a>
+      </div>
+    </div>
+  </div>
 </div>
-<p id="message"></p>
-</div>
-</section>
-
-<section>
-<div class="letter">
-<h2>💌 My Letter</h2>
-<p>Dear Rihanna,</p>
-<p>
-I just wanted to leave a few words here because sometimes you can really miss the feeling that someone's music brings into your life. I miss those moments when your songs made ordinary days feel special, when a familiar voice could change the whole mood, and when the memories connected to your music came rushing back.
-</p>
-<p>
-Your music has been part of so many moments, and that's something I don't take for granted. Even when time passes, those songs can still bring back the same feelings and memories.
-</p>
-<p>
-So this little website is simply a thank-you and a reminder: your art has meant a lot to me, and I hope you keep creating things that make people smile, feel, remember, and dream.
-</p>
-<p>
-Until the next song, the next memory, and the next moment that makes me press play again — you'll always have a special place in my playlist. 💗
-</p>
-<p class="signature">With admiration,<br>Someone who misses the music 💕</p>
-</div>
-
-<div class="counter">
-<h3>💖 A tiny memory counter</h3>
-<p>Every click adds another heart to the page.</p>
-<strong id="count">0</strong> hearts
-</div>
-</section>
-</main>
-
-<footer>
-Made with 💗 • Fan-made page • Not affiliated with Rihanna or her official site.
-</footer>
-
 <script>
-let count=0;
-function makeHearts(){
-  count++;
-  document.getElementById("count").textContent=count;
-  for(let i=0;i<7;i++){
-    const h=document.createElement("div");
-    h.className="floating";
-    h.textContent=["💗","💕","💖","💞"][Math.floor(Math.random()*4)];
-    h.style.left=Math.random()*95+"vw";
-    h.style.bottom="10px";
-    h.style.animationDuration=(2.5+Math.random()*2)+"s";
-    document.body.appendChild(h);
-    setTimeout(()=>h.remove(),4500);
-  }
-}
-function showLove(){
-  document.getElementById("message").textContent="Some songs become memories. Some memories never really leave. 💗";
-  makeHearts();
-}
-function toggleTheme(){document.body.classList.toggle("dark")}
+const text=`Maybe this is unexpected, coming from the guy next door... but I couldn't keep this in my heart anymore.\n\nEvery time I see you - that beautiful smile, those cute glasses, the way you light up - my whole day becomes better.\n\nKhloe, you are not just beautiful outside, you have this calm, sweet energy that makes our whole neighbourhood feel brighter. I find myself looking forward to seeing you, even if it's just for a second by the gate.\n\nI made this little website just for you, so you will always have a place that tells you how special you are to someone next door.\n\nI would love to know you more... maybe a walk, a soda, a chat - anything you are comfortable with?\n\nYou are amazing, Khloe. And someone next door has liked you for a long time.`;
+function createHeart(){const h=document.createElement('div');h.className='heart-float';h.innerHTML='❤️';h.style.left=Math.random()*100+'vw';h.style.fontSize=(Math.random()*20+12)+'px';h.style.animationDuration=(Math.random()*3+3)+'s';document.getElementById('hearts').appendChild(h);setTimeout(()=>h.remove(),6000);}setInterval(createHeart,300);
+function openLetter(){document.getElementById('envelopeWrap').style.display='none';document.getElementById('card').style.display='block';typeWriter();}
+let i=0;function typeWriter(){if(i<text.length){document.getElementById('letter').innerHTML+=text.charAt(i)=='\n'?'<br><br>':text.charAt(i);i++;setTimeout(typeWriter,28);}else{document.getElementById('signature').style.display='block';document.getElementById('btns').style.display='flex';}}
+function heartsExplosion(){for(let k=0;k<30;k++)setTimeout(createHeart,k*80);alert('You made Ronnie the happiest neighbour ever! ❤️');}
 </script>
 </body>
 </html>
