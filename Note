@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Girl I Met at Lubiri</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="hero-page">
+
+  <div class="stars"></div>
+
+  <div class="hero">
+    <p class="small">A little story worth remembering</p>
+
+    <h1>
+      The Girl I Met<br>
+      <span>at Lubiri</span>
+    </h1>
+
+    <p class="subtitle">
+      Some people enter your life quietly, then somehow leave
+      a permanent place in your memories.
+    </p>
+
+    <button class="enter" onclick="startMusic(); location.href='letter.html'">
+      Open the letter <span>→</span>
+    </button>
+
+    <button class="music" onclick="toggleMusic()">
+      ♫ <span id="musicText">Music</span>
+    </button>
+  </div>
+
+  <audio id="bgMusic" loop preload="auto">
+    <source src="music.wav" type="audio/wav">
+  </audio>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
