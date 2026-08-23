@@ -3,60 +3,103 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Rihanna - The Girl I Met At Lubiri</title>
+<title>For Rihanna</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
   body{font-family:'Poppins',sans-serif;background:radial-gradient(circle at top,#2a1a2f 0%,#0e0a14 70%,#000 100%);color:white;overflow:hidden;height:100vh}
-  .page{position:absolute;width:100%;height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:25px;opacity:0;pointer-events:none;transform:scale(0.95) translateY(20px);transition:all 1s cubic-bezier(0.77,0,0.175,1)}
+  .page{position:absolute;width:100%;height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:25px;opacity:0;pointer-events:none;transform:scale(0.95) translateY(20px);transition:all 0.8s ease}
   .page.active{opacity:1;pointer-events:all;transform:scale(1) translateY(0)}
-  h1{font-family:'Playfair Display',serif;font-size:38px;letter-spacing:3px;line-height:1.2;background:linear-gradient(to bottom,#fff,#d9b8ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:glow 3s ease-in-out infinite alternate}
-  @keyframes glow{from{text-shadow:0 0 10px rgba(255,255,255,0.3)} to{text-shadow:0 0 30px rgba(200,150,255,0.8)}}
-  .subtitle{margin-top:15px;opacity:0.7;font-size:14px;letter-spacing:2px}
-  .btn{margin-top:40px;padding:15px 35px;border-radius:50px;background:linear-gradient(135deg,#ff6fae,#b46bff);border:none;color:white;font-size:16px;letter-spacing:1px;cursor:pointer;box-shadow:0 10px 30px rgba(180,107,255,0.4);transition:0.3s}
-  .btn:hover{transform:translateY(-3px) scale(1.05)}
-  .envelope{background:rgba(255,255,255,0.08);backdrop-filter:blur(15px);border:1px solid rgba(255,255,255,0.15);border-radius:20px;padding:35px 28px;max-width:500px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,0.5);animation:floatCard 4s ease-in-out infinite}
-  @keyframes floatCard{0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)}}
-  .letter-text{font-size:15.5px;line-height:1.8;color:#e9e0f0;text-align:left}
+  h1{font-family:'Playfair Display',serif;font-size:36px;letter-spacing:3px;line-height:1.2;color:#fff;text-shadow:0 0 20px rgba(200,150,255,0.6)}
+  .subtitle{margin-top:12px;opacity:0.7;font-size:14px;letter-spacing:2px}
+  .btn{margin-top:35px;padding:15px 32px;border-radius:50px;background:linear-gradient(135deg,#ff6fae,#b46bff);border:none;color:white;font-size:16px;cursor:pointer}
+  .envelope{background:rgba(255,255,255,0.08);backdrop-filter:blur(15px);border:1px solid rgba(255,255,255,0.15);border-radius:20px;padding:32px 26px;max-width:500px;width:100%}
+  .letter-text{font-size:15px;line-height:1.8;color:#e9e0f0;text-align:left}
   .hearts span{position:absolute;font-size:20px;animation:heartFloat 8s linear infinite;opacity:0.6;pointer-events:none}
-  @keyframes heartFloat{0%{transform:translateY(100vh) rotate(0deg);opacity:0}10%{opacity:0.7}100%{transform:translateY(-10vh) rotate(180deg);opacity:0}}
-  .music-btn{position:fixed;bottom:20px;right:20px;z-index:100;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);padding:10px 18px;border-radius:30px;font-size:12px;cursor:pointer;backdrop-filter:blur(10px)}
-  #youtubePlayer{position:fixed;left:-200px;top:-200px;width:1px;height:1px;opacity:0}
+  @keyframes heartFloat{0%{transform:translateY(100vh);opacity:0}10%{opacity:0.7}100%{transform:translateY(-10vh);opacity:0}}
+  .music-btn{position:fixed;bottom:20px;right:20px;z-index:999;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.2);padding:12px 18px;border-radius:30px;font-size:12px;cursor:pointer}
 </style>
 </head>
 <body>
 <div class="hearts" id="hearts"></div>
-<div id="youtubePlayer"></div>
-<div class="music-btn" id="musicBtn" onclick="toggleMusic()">♫ Play - I Wanna Be Yours</div>
+
+<!-- EXACT FILE NAME FROM YOUR REPO -->
+<audio id="mySong" loop preload="auto">
+  <source src="Lord Huron - The Night We Met (Lyrics) (M4A_128K).m4a" type="audio/mp4">
+</audio>
+
+<div class="music-btn" id="musicBtn">♫ Tap to Play</div>
 
 <div class="page active" id="page1">
   <h1>THE GIRL I MET<br>AT LUBIRI</h1>
   <p class="subtitle">A small story made for you</p>
-  <button class="btn" onclick="goToPage(2)">see letter from rashid →</button>
+  <button class="btn" id="btn1">see letter from rashid →</button>
 </div>
 
 <div class="page" id="page2">
   <div class="envelope">
-    <p style="font-family:'Playfair Display';font-size:22px;margin-bottom:20px">Dear Rihanna,</p>
+    <p style="font-family:'Playfair Display';font-size:22px;margin-bottom:18px">Dear Rihanna,</p>
     <div class="letter-text">
       I just wanted to be honest with you about something I’ve been feeling. I really miss the way things used to be between us—<b>talking, laughing, and just being comfortable</b> around each other.<br><br>
       I know things have changed, and I’m not trying to pressure you into anything. I just want you to know that I still care about you and I miss having that connection with you. If there’s a chance for us to slowly get back to how we used to be, I’d genuinely like that.<br><br>
       I hope we can put the past behind us, understand each other better, and maybe start again, even if it’s one small step at a time.<br><br>
-      <span>From,<br><b style="font-size:18px;color:#fff">Rashid</b></span>
+      From,<br><b style="font-size:18px;color:#fff">Rashid</b>
     </div>
-    <button class="btn" style="margin-top:25px;background:transparent;border:1px solid rgba(255,255,255,0.3)" onclick="goToPage(1)">← back</button>
-    <button class="btn" style="margin-top:15px" onclick="goToPage(3)">one more thing →</button>
+    <button class="btn" style="margin-top:20px;background:transparent;border:1px solid rgba(255,255,255,0.3);margin-right:10px" id="backBtn">← back</button>
+    <button class="btn" style="margin-top:20px" id="nextBtn">one more thing →</button>
   </div>
 </div>
 
 <div class="page" id="page3">
-  <h1 style="font-size:32px">I wanna be yours.</h1>
-  <p class="subtitle" style="max-width:320px;line-height:1.6;margin-top:20px">No pressure. No rush. Just know that someone in Lubiri still smiles when he remembers you.</p>
-  <button class="btn" onclick="goToPage(1)">replay from start ♡</button>
+  <h1 style="font-size:30px">I wanna be yours.</h1>
+  <p class="subtitle" style="max-width:320px;line-height:1.6;margin-top:18px">No pressure. No rush. Just know that someone in Lubiri still smiles when he remembers you.</p>
+  <button class="btn" id="replayBtn">replay from start ♡</button>
 </div>
 
-<script src="https://www.youtube.com/iframe_api"></script>
 <script>
-  let player; let playing=false;
-  function onYouTubeIframeAPIReady(){
-    player=new YT.Player('youtubePlayer',{height:'1',width:'1',videoId:'nyuo9-OjNNg',playerVars:{loop:1,playlist:'nyuo9-OjNNg',
+  function goToPage(n){
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+    document.getElementById('page'+n).classList.add('active');
+  }
+  document.getElementById('btn1').addEventListener('click', ()=> goToPage(2));
+  document.getElementById('backBtn').addEventListener('click', ()=> goToPage(1));
+  document.getElementById('nextBtn').addEventListener('click', ()=> goToPage(3));
+  document.getElementById('replayBtn').addEventListener('click', ()=> goToPage(1));
+
+  const song = document.getElementById('mySong');
+  const musicBtn = document.getElementById('musicBtn');
+  let isPlaying = false;
+
+  function startMusic(){
+    if(isPlaying) return;
+    song.volume = 0.7;
+    song.play().then(()=>{
+      musicBtn.textContent='♫ Pause Music';
+      isPlaying=true;
+    }).catch(()=>{
+      musicBtn.textContent='♫ Tap to Play - Night We Met';
+    });
+  }
+
+  // Auto attempt + tap anywhere to start (feels automatic)
+  window.addEventListener('load', ()=> setTimeout(startMusic, 400));
+  document.body.addEventListener('click', startMusic, {once:true});
+  document.body.addEventListener('touchstart', startMusic, {once:true});
+
+  musicBtn.addEventListener('click', (e)=>{
+    e.stopPropagation();
+    if(!isPlaying){ startMusic(); }
+    else { song.pause(); musicBtn.textContent='♫ Play - Night We Met'; isPlaying=false; }
+  });
+
+  const container=document.getElementById('hearts');
+  setInterval(()=>{
+    const s=document.createElement('span');
+    s.textContent=['♡','♥','✦'][Math.floor(Math.random()*3)];
+    s.style.left=Math.random()*100+'vw';
+    container.appendChild(s);
+    setTimeout(()=>s.remove(),8000);
+  }, 350);
+</script>
+</body>
+</html>
