@@ -3,68 +3,88 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Khloe ❤️</title>
+<title>For Rihanna</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap');
-*{margin:0;padding:0;box-sizing:border-box}
-body{min-height:100vh;background:linear-gradient(135deg,#ff9a9e,#fecfef,#fad0c4,#ffecd2);font-family:'Poppins',sans-serif;display:flex;align-items:center;justify-content:center;padding:20px}
-.hearts{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:1}
-.heart-float{position:absolute;animation:fall linear infinite;color:#e84393;opacity:0.7}
-@keyframes fall{0%{transform:translateY(-10vh) rotate(0deg)}100%{transform:translateY(110vh) rotate(360deg);opacity:0}}
-.container{position:relative;z-index:2;max-width:580px;width:100%}
-.envelope-wrap{text-align:center;transition:0.8s}
-.envelope{width:200px;height:140px;background:#e84393;margin:0 auto;border-radius:0 0 12px 12px;position:relative;cursor:pointer;box-shadow:0 20px 40px rgba(0,0,0,0.2)}
-.envelope:before{content:'';position:absolute;top:-70px;left:0;border-left:100px solid transparent;border-right:100px solid transparent;border-bottom:70px solid #ff6b9d}
-.tap{margin-top:15px;color:#e84393;font-size:13px;animation:blink 1.5s infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
-.card{display:none;background:white;border-radius:28px;overflow:hidden;box-shadow:0 30px 90px rgba(0,0,0,0.25);animation:pop .8s ease}
-@keyframes pop{0%{transform:scale(.8) translateY(30px);opacity:0}100%{transform:scale(1) translateY(0);opacity:1}}
-.photo-wrap{position:relative;height:400px;overflow:hidden;background:#000}
-.photo-wrap img{width:100%;height:100%;object-fit:contain}
-.photo-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.7));height:120px}
-.photo-name{position:absolute;bottom:18px;left:22px;color:white;font-family:'Dancing Script',cursive;font-size:34px;text-shadow:0 2px 10px rgba(0,0,0,0.5)}
-.content{padding:28px 26px 24px}
-h1{font-family:'Dancing Script',cursive;font-size:38px;color:#e84393}
-.sub{font-size:11px;color:#ff8a9b;letter-spacing:3px;text-transform:uppercase;margin-bottom:14px}
-.letter{color:#555;line-height:1.9;font-size:14.8px;min-height:220px}
-.signature{text-align:right;font-family:'Dancing Script',cursive;font-size:26px;color:#e84393;margin-top:20px}
-.btns{display:flex;gap:10px;margin-top:22px}
-.btn{flex:1;padding:13px;border-radius:30px;text-align:center;text-decoration:none;font-weight:600;font-size:14px;cursor:pointer;border:none}
-.btn-primary{background:#e84393;color:white}
-.btn-secondary{background:#fff0f3;color:#e84393}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Poppins',sans-serif;background:radial-gradient(circle at top,#2a1a2f 0%,#0e0a14 60%,#000 100%);color:white;overflow:hidden;height:100vh}
+  .page{position:absolute;width:100%;height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:25px;opacity:0;pointer-events:none;transform:scale(0.95) translateY(20px);transition:all 1s cubic-bezier(0.77,0,0.175,1)}
+  .page.active{opacity:1;pointer-events:all;transform:scale(1) translateY(0)}
+  h1{font-family:'Playfair Display',serif;font-size:38px;letter-spacing:3px;line-height:1.2;background:linear-gradient(to bottom,#fff,#d9b8ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:glow 3s ease-in-out infinite alternate}
+  @keyframes glow{from{text-shadow:0 0 10px rgba(255,255,255,0.3)} to{text-shadow:0 0 30px rgba(200,150,255,0.8)}}
+  .subtitle{margin-top:15px;opacity:0.7;font-size:14px;letter-spacing:2px}
+  .btn{margin-top:40px;padding:15px 35px;border-radius:50px;background:linear-gradient(135deg,#ff6fae,#b46bff);border:none;color:white;font-size:16px;cursor:pointer;box-shadow:0 10px 30px rgba(180,107,255,0.4);transition:0.3s}
+  .btn:hover{transform:translateY(-3px) scale(1.05)}
+  .envelope{background:rgba(255,255,255,0.08);backdrop-filter:blur(15px);border:1px solid rgba(255,255,255,0.15);border-radius:20px;padding:35px 28px;max-width:500px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,0.5);animation:floatCard 4s ease-in-out infinite}
+  @keyframes floatCard{0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)}}
+  .letter-text{font-size:15.5px;line-height:1.8;color:#e9e0f0;text-align:left}
+  .hearts span{position:absolute;font-size:20px;animation:heartFloat 8s linear infinite;opacity:0.6;pointer-events:none}
+  @keyframes heartFloat{0%{transform:translateY(100vh) rotate(0deg);opacity:0}10%{opacity:0.7}100%{transform:translateY(-10vh) rotate(180deg);opacity:0}}
+  .music-btn{position:fixed;bottom:20px;right:20px;z-index:100;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);padding:10px 18px;border-radius:30px;font-size:12px;cursor:pointer;backdrop-filter:blur(10px)}
+  #youtubePlayer{position:fixed;bottom:-100px;left:-100px;width:1px;height:1px;opacity:0;pointer-events:none}
 </style>
 </head>
 <body>
 <div class="hearts" id="hearts"></div>
-<div class="container">
-  <div class="envelope-wrap" id="envelopeWrap">
-    <div class="envelope" onclick="openLetter()"><div style="color:white;padding-top:50px;font-weight:600">FOR KHLOE 💌</div></div>
-    <div class="tap">Tap to open your letter 👆</div>
-  </div>
-  <div class="card" id="card">
-    <div class="photo-wrap">
-      <img src="Screenshot_20260822-231216_Photos.jpg" alt="Khloe">
-      <div class="photo-overlay"></div>
-      <div class="photo-name">Khloe ✨ My Neighbour</div>
+
+<!-- REAL SONG: I Wanna Be Yours - Arctic Monkeys -->
+<div id="youtubePlayer"></div>
+<div class="music-btn" id="musicBtn" onclick="toggleMusic()">♫ Play - I Wanna Be Yours</div>
+
+<div class="page active" id="page1">
+  <h1>THE GIRL I MET<br>AT LUBIRI</h1>
+  <p class="subtitle">A small story made for you</p>
+  <button class="btn" onclick="goToPage(2)">see letter from rashid →</button>
+</div>
+
+<div class="page" id="page2">
+  <div class="envelope">
+    <p style="font-family:'Playfair Display';font-size:22px;margin-bottom:20px">Dear Rihanna,</p>
+    <div class="letter-text">
+      I just wanted to be honest with you about something I’ve been feeling. I really miss the way things used to be between us—<b>talking, laughing, and just being comfortable</b> around each other.<br><br>
+      I know things have changed, and I’m not trying to pressure you into anything. I just want you to know that I still care about you and I miss having that connection with you. If there’s a chance for us to slowly get back to how we used to be, I’d genuinely like that.<br><br>
+      I hope we can put the past behind us, understand each other better, and maybe start again, even if it’s one small step at a time.<br><br>
+      <span style="opacity:0.8">From,<br><b style="font-size:18px;color:#fff">Rashid</b></span>
     </div>
-    <div class="content">
-      <h1>Dear Khloe,</h1>
-      <div class="sub">My Beautiful Neighbour</div>
-      <div class="letter" id="letter"></div>
-      <div class="signature" id="signature" style="display:none">Yours truly,<br>Ronnie — your neighbour ❤️</div>
-      <div class="btns" id="btns" style="display:none">
-        <a class="btn btn-primary" href="#" onclick="alert('Screenshot this and send to Ronnie: Hi neighbour, I saw your letter ❤️');return false;">Say Hi Back? 💬</a>
-        <a class="btn btn-secondary" href="#" onclick="heartsExplosion();return false;">I Love It! ❤️</a>
-      </div>
-    </div>
+    <button class="btn" style="margin-top:25px;background:transparent;border:1px solid rgba(255,255,255,0.3)" onclick="goToPage(1)">← back</button>
+    <button class="btn" style="margin-top:15px" onclick="goToPage(3)">one more thing →</button>
   </div>
 </div>
+
+<div class="page" id="page3">
+  <h1 style="font-size:32px">I wanna be yours.</h1>
+  <p class="subtitle" style="max-width:320px;line-height:1.6;margin-top:20px">No pressure. No rush. Just know that someone in Lubiri still smiles when he remembers you.</p>
+  <button class="btn" onclick="goToPage(1)">replay from start ♡</button>
+</div>
+
+<script src="https://www.youtube.com/iframe_api"></script>
 <script>
-const text=`Maybe this is unexpected, coming from the guy next door... but I couldn't keep this in my heart anymore.\n\nEvery time I see you - that beautiful smile, those cute glasses, the way you light up - my whole day becomes better.\n\nKhloe, you are not just beautiful outside, you have this calm, sweet energy that makes our whole neighbourhood feel brighter. I find myself looking forward to seeing you, even if it's just for a second by the gate.\n\nI made this little website just for you, so you will always have a place that tells you how special you are to someone next door.\n\nI would love to know you more... maybe a walk, a soda, a chat - anything you are comfortable with?\n\nYou are amazing, Khloe. And someone next door has liked you for a long time.`;
-function createHeart(){const h=document.createElement('div');h.className='heart-float';h.innerHTML='❤️';h.style.left=Math.random()*100+'vw';h.style.fontSize=(Math.random()*20+12)+'px';h.style.animationDuration=(Math.random()*3+3)+'s';document.getElementById('hearts').appendChild(h);setTimeout(()=>h.remove(),6000);}setInterval(createHeart,300);
-function openLetter(){document.getElementById('envelopeWrap').style.display='none';document.getElementById('card').style.display='block';typeWriter();}
-let i=0;function typeWriter(){if(i<text.length){document.getElementById('letter').innerHTML+=text.charAt(i)=='\n'?'<br><br>':text.charAt(i);i++;setTimeout(typeWriter,28);}else{document.getElementById('signature').style.display='block';document.getElementById('btns').style.display='flex';}}
-function heartsExplosion(){for(let k=0;k<30;k++)setTimeout(createHeart,k*80);alert('You made Ronnie the happiest neighbour ever! ❤️');}
+  let player; let playing=false;
+  function onYouTubeIframeAPIReady(){
+    player = new YT.Player('youtubePlayer',{
+      height:'1',width:'1',
+      videoId:'nyuo9-OjNNg', // I Wanna Be Yours - Arctic Monkeys
+      playerVars:{loop:1,playlist:'nyuo9-OjNNg'},
+      events:{'onReady':()=>{}}
+    });
+  }
+  function toggleMusic(){
+    if(!player) return;
+    if(!playing){player.playVideo();player.setVolume(70);document.getElementById('musicBtn').innerText='♫ Pause Music';}
+    else{player.pauseVideo();document.getElementById('musicBtn').innerText='♫ Play - I Wanna Be Yours';}
+    playing=!playing;
+  }
+  function goToPage(n){
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+    setTimeout(()=>{document.getElementById('page'+n).classList.add('active')},200);
+    if(!playing && n===2) toggleMusic(); // auto play when she opens letter
+  }
+  const container=document.getElementById('hearts');
+  setInterval(()=>{
+    const s=document.createElement('span');s.innerHTML=['♡','♥','✦'][Math.floor(Math.random()*3)];
+    s.style.left=Math.random()*100+'vw';s.style.animationDuration=(6+Math.random()*6)+'s';
+    s.style.fontSize=(12+Math.random()*18)+'px';container.appendChild(s);setTimeout(()=>s.remove(),9000);
+  },400);
 </script>
 </body>
 </html>
