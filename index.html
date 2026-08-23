@@ -10,30 +10,38 @@
   body{font-family:'Poppins',sans-serif;background:radial-gradient(circle at top,#2a1a2f 0%,#0e0a14 70%,#000 100%);color:white;overflow:hidden;height:100vh}
   .page{position:absolute;width:100%;height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:25px;opacity:0;pointer-events:none;transform:scale(0.95) translateY(20px);transition:all 0.8s ease}
   .page.active{opacity:1;pointer-events:all;transform:scale(1) translateY(0)}
-  h1{font-family:'Playfair Display',serif;font-size:36px;letter-spacing:3px;line-height:1.2;color:#fff;text-shadow:0 0 20px rgba(200,150,255,0.6)}
+  h1{font-family:'Playfair Display',serif;font-size:36px;letter-spacing:3px;line-height:1.2}
   .subtitle{margin-top:12px;opacity:0.7;font-size:14px;letter-spacing:2px}
-  .btn{margin-top:35px;padding:15px 32px;border-radius:50px;background:linear-gradient(135deg,#ff6fae,#b46bff);border:none;color:white;font-size:16px;cursor:pointer}
+  .btn{margin-top:25px;padding:15px 32px;border-radius:50px;background:linear-gradient(135deg,#ff6fae,#b46bff);border:none;color:white;font-size:16px;cursor:pointer;transition:all 0.5s}
+  .hidden{opacity:0;pointer-events:none;transform:translateY(15px)}
+  .show{opacity:1;pointer-events:all;transform:translateY(0)}
   .envelope{background:rgba(255,255,255,0.08);backdrop-filter:blur(15px);border:1px solid rgba(255,255,255,0.15);border-radius:20px;padding:32px 26px;max-width:500px;width:100%}
   .letter-text{font-size:15px;line-height:1.8;color:#e9e0f0;text-align:left}
+  .corner{position:fixed;font-size:12px;opacity:0.6;background:rgba(255,255,255,0.08);padding:8px 14px;border-radius:20px;backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.1);z-index:10;transition:all 0.8s}
+  .corner.top-right{top:18px;right:18px}
+  .corner.bottom-left{bottom:18px;left:18px}
+  .music-btn{position:fixed;bottom:20px;right:20px;z-index:999;background:linear-gradient(135deg,#ff6fae,#b46bff);padding:13px 20px;border-radius:30px;font-size:13px;cursor:pointer;box-shadow:0 10px 30px rgba(255,107,174,0.4);animation:pulse 2s infinite}
+  @keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.05)}100%{transform:scale(1)}}
   .hearts span{position:absolute;font-size:20px;animation:heartFloat 8s linear infinite;opacity:0.6;pointer-events:none}
   @keyframes heartFloat{0%{transform:translateY(100vh);opacity:0}10%{opacity:0.7}100%{transform:translateY(-10vh);opacity:0}}
-  .music-btn{position:fixed;bottom:20px;right:20px;z-index:999;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.2);padding:12px 18px;border-radius:30px;font-size:12px;cursor:pointer}
 </style>
 </head>
 <body>
 <div class="hearts" id="hearts"></div>
 
-<!-- EXACT FILE NAME FROM YOUR REPO -->
-<audio id="mySong" loop preload="auto">
-  <source src="Lord Huron - The Night We Met (Lyrics) (M4A_128K).m4a" type="audio/mp4">
-</audio>
+<audio id="mySong" loop preload="auto"></audio>
 
-<div class="music-btn" id="musicBtn">♫ Tap to Play</div>
+<!-- CORNER HINTS -->
+<div class="corner top-right" id="hint1">look here first → right corner 👀</div>
+<div class="corner bottom-left hidden" id="hint2">not here... look bottom right corner 👉</div>
+
+<div class="music-btn" id="musicBtn">♫ Tap here to play our song</div>
 
 <div class="page active" id="page1">
   <h1>THE GIRL I MET<br>AT LUBIRI</h1>
   <p class="subtitle">A small story made for you</p>
-  <button class="btn" id="btn1">see letter from rashid →</button>
+  <p id="guideText" style="margin-top:20px;font-size:13px;opacity:0.8">👆 first, find the music in the corners</p>
+  <button class="btn hidden" id="btn1">see letter from rashid →</button>
 </div>
 
 <div class="page" id="page2">
@@ -64,34 +72,49 @@
   document.getElementById('btn1').addEventListener('click', ()=> goToPage(2));
   document.getElementById('backBtn').addEventListener('click', ()=> goToPage(1));
   document.getElementById('nextBtn').addEventListener('click', ()=> goToPage(3));
-  document.getElementById('replayBtn').addEventListener('click', ()=> goToPage(1));
+  document.getElementById('replayBtn').addEventListener('click', ()=> {location.reload()});
 
   const song = document.getElementById('mySong');
+  const fileName = "Lord Huron - The Night We Met (Lyrics) (M4A_128K).m4a";
+  song.src = encodeURI(fileName); // FIX FOR SPACES
+
   const musicBtn = document.getElementById('musicBtn');
+  const btn1 = document.getElementById('btn1');
+  const hint1 = document.getElementById('hint1');
+  const hint2 = document.getElementById('hint2');
+  const guideText = document.getElementById('guideText');
   let isPlaying = false;
+
+  // Step 1 -> Step 2 after 2.5 sec
+  setTimeout(()=>{
+    hint1.classList.add('hidden');
+    hint2.classList.remove('hidden');
+    guideText.textContent = "now look bottom right... 👉";
+  }, 2500);
 
   function startMusic(){
     if(isPlaying) return;
-    song.volume = 0.7;
+    song.volume = 0.8;
     song.play().then(()=>{
-      musicBtn.textContent='♫ Pause Music';
       isPlaying=true;
-    }).catch(()=>{
-      musicBtn.textContent='♫ Tap to Play - Night We Met';
+      musicBtn.textContent='♫ Pause Music';
+      musicBtn.style.animation='none';
+      hint2.classList.add('hidden');
+      guideText.textContent='music found ♡ now open your letter';
+      btn1.classList.remove('hidden');
+      btn1.classList.add('show');
+    }).catch((err)=>{
+      alert("Tap again to allow music - phone blocked it: " + err);
     });
   }
 
-  // Auto attempt + tap anywhere to start (feels automatic)
-  window.addEventListener('load', ()=> setTimeout(startMusic, 400));
-  document.body.addEventListener('click', startMusic, {once:true});
-  document.body.addEventListener('touchstart', startMusic, {once:true});
-
   musicBtn.addEventListener('click', (e)=>{
     e.stopPropagation();
-    if(!isPlaying){ startMusic(); }
-    else { song.pause(); musicBtn.textContent='♫ Play - Night We Met'; isPlaying=false; }
+    if(!isPlaying) startMusic();
+    else { song.pause(); musicBtn.textContent='♫ Resume our song'; isPlaying=false; }
   });
 
+  // Floating hearts
   const container=document.getElementById('hearts');
   setInterval(()=>{
     const s=document.createElement('span');
